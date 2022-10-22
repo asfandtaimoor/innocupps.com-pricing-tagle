@@ -1,0 +1,280 @@
+:root {
+  --color-red: #c1272d;
+  --border-radius: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.ts-text {
+  &-red {
+    color: var(--color-red);
+  }
+}
+
+.ts-pricing-table {
+  background: #f2f2f2;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  position: relative;
+
+  &-outer {
+    max-width: 340px;
+    width: 100%;
+    margin-top: 40px;
+    margin-inline: auto;
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+    &__header {
+      background-color: var(--color-red);
+      color: white;
+      width: 100%;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      text-align: center;
+      padding: 0.5rem 0;
+      h1 {
+        margin: 0;
+      }
+    }
+    @media (max-width: 767px) {
+      margin-top: 0;
+      &:nth-child(2) {
+        order: -1;
+      }
+    }
+  }
+  &--primary {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+  &-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1100px;
+    margin-inline: auto;
+    gap: 1rem;
+    padding: 3.125rem 1rem;
+  }
+
+  @media (max-width: 767px) {
+    &-group {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 3rem;
+    }
+    &-outer {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 20px;
+    color: #666667;
+    font-weight: 700;
+    padding: 25px 0 20px;
+    margin: 0;
+  }
+  &__img {
+    max-width: 100%;
+    max-height: 300px;
+
+    &-container {
+      height: 300px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+  }
+  &__checkbox-group {
+    margin-bottom: 1.5rem;
+    .ts-check-box-group {
+      margin-bottom: 1rem;
+    }
+    .sq-radio {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      //   margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    label {
+      padding-top: 3px;
+      font-weight: bold;
+    }
+
+    /* Hide the browser's default radio button */
+    .sq-radio input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 22px;
+      height: 22px;
+
+      border-radius: 2px;
+      border: 2px solid #616161;
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      line-height: 19px;
+      text-align: center;
+      color: red;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    /* On mouse-over, add a grey background color */
+    // .sq-radio:hover input ~ .checkmark {
+    //   background-color: var(--color-red);
+    // }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    // .sq-radio input:checked .checkmark {
+    //   border: 2px solid var(--color-red);
+    // }
+    .sq-radio input:checked ~ .checkmark:after {
+      display: block;
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      text-align: center;
+      color: var(--color-red);
+      font-size: 14px;
+      transition: all 0.3s;
+      background-image: url("../assets/icons/charm_tick.svg");
+      background-position: center;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      border: 2px solid var(--color-red);
+      border-radius: 2px;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .sq-radio .checkmark:after {
+      top: 0;
+      left: 0;
+      width: calc(100%);
+      height: calc(100%);
+
+      border: 1px solid var(--color-red);
+    }
+  }
+  &__regular-price {
+    text-decoration: line-through;
+    padding: 0 7px;
+    color: #999;
+    margin: 0;
+    margin-bottom: 1rem;
+    &-title {
+      font-size: 18px;
+      background: transparent;
+      color: #999999;
+      border-radius: 0;
+      padding: 0 7px;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+  }
+  &__price-per-bottle {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    * {
+      margin: 0;
+    }
+    .ts-percent {
+      background-color: var(--color-red);
+
+      margin: 0;
+      font-size: 17px;
+      color: #fff;
+      border-radius: var(--border-radius);
+      padding: 4px 10px;
+      text-align: center;
+      border: 1px solid #c1272d;
+      float: left;
+      font-weight: 400;
+    }
+  }
+  &__subscribe {
+    background: #c1272d;
+    border-radius: 35px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 20px;
+    color: #ffffff;
+    display: inline-block;
+    padding: 14px 20px;
+    border: 1px solid #c1272d;
+    cursor: pointer;
+  }
+
+  &__notification {
+    font-size: 12px;
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    color: gray;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    transition: all 0.3s;
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+    &::before {
+      content: "";
+      height: 0;
+      width: 0;
+      border-bottom: 10px solid rgba(255, 0, 0, 0.05);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      position: absolute;
+      left: 50%;
+      top: -10px;
+      transform: translateX(-50%);
+    }
+    a {
+      color: #11a6df;
+    }
+  }
+}
+.single {
+  .ts-subscription {
+    display: none;
+  }
+}
+.subscription {
+  .ts-single {
+    display: none;
+  }
+}
